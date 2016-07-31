@@ -36,7 +36,9 @@ class RecipesController < ProtectedController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      @recipe_ingredients = @recipe.recipe_ingredients.all
+      # @recipe_ingredients = @recipe.recipe_ingredients.select(|k,v| k==recipe_id)
+      # @recipe_ingredient = RecipeIngredient.find(params[:id])
+      # @recipe_ingredient.update(recipe_ingredient_params)
       head :no_content
     else
       render json: @recipe.errors, status: :unprocessable_entity

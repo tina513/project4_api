@@ -1,6 +1,6 @@
-class LikeRecipesController < ProtectedController
+class LikeRecipesController < ApplicationController
   before_action :set_like_recipe, only: [:show, :update, :destroy]
-  # before_action :like_other_recipe, only: [:create]
+
   # GET /like_recipes
   # GET /like_recipes.json
   def index
@@ -18,7 +18,6 @@ class LikeRecipesController < ProtectedController
   # POST /like_recipes
   # POST /like_recipes.json
   def create
-    binding.pry
     @like_recipe = LikeRecipe.new(like_recipe_params)
 
     if @like_recipe.save
@@ -54,11 +53,7 @@ class LikeRecipesController < ProtectedController
       @like_recipe = LikeRecipe.find(params[:id])
     end
 
-    def like_other_recipe
-      like_recipe.user_id eql? current_user.id
-    end
-
     def like_recipe_params
-      params.require(:like_recipe).permit(:recipe_id, :user_id)
+      params.require(:like_recipe).permit(:profile_id, :recipe_id)
     end
 end

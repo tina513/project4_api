@@ -2,9 +2,10 @@ curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "an@example.email",
-      "password": "an example password",
-      "password_confirmation": "an example password"
+      "email": "three@example.email",
+      "password": "three example password",
+      "password_confirmation": "three example password",
+      "profile_attributes": {}
     }
   }'
 
@@ -12,44 +13,44 @@ curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "an@example.email",
-      "password": "an example password"
+      "email": "three@example.email",
+      "password": "three example password"
     }
   }'
 
   curl --include --request POST http://localhost:3000/recipes \
-  --header "Authorization: Token token=BAhJIiU4YjdkMzYzMDZlZjg3YmQ3MmJkZWQzMjI4YjI1NzUxYQY6BkVG--98b440e3707102bf7f6c910880912006b7b42b49" \
+  --header "Authorization: Token token=BAhJIiVkOTRmOGFlOTMwYzc5NjRiODVlZmY5NmFjMThhMDhmYgY6BkVG--3b14848da23f5400863c36570ceee3a639d87aca" \
   --header "Content-Type: application/json" \
   --data '{
     "recipes": {
-      "name": "first example recipe",
+      "name": "juicy fries",
       "category": "fry",
-      "instructions": ["do it", "ignore it"],
+      "instructions": ["cut it", "fry it"],
       "recipe_ingredients_attributes": [{
           "amount": 1,
-          "ingredient": "egg yellow",
-          "measure": "cup"
+          "ingredient": "white potato",
+          "measure": ""
       },
       {
       "amount": 3,
-      "ingredient": "milk",
+      "ingredient": "bbq sauce",
       "measure": "cup"
       }]
     }
   }'
 
 
-  curl --include --request PATCH http://localhost:3000/recipes/1 \
-  --header "Authorization: Token token=BAhJIiU4YjdkMzYzMDZlZjg3YmQ3MmJkZWQzMjI4YjI1NzUxYQY6BkVG--98b440e3707102bf7f6c910880912006b7b42b49" \
+  curl --include --request PATCH http://localhost:3000/recipes/3 \
+  --header "Authorization: Token token=BAhJIiVkOTRmOGFlOTMwYzc5NjRiODVlZmY5NmFjMThhMDhmYgY6BkVG--3b14848da23f5400863c36570ceee3a639d87aca" \
   --header "Content-Type: application/json" \
   --data '{
     "recipes": {
-      "name": "second example recipe",
-      "category": "grill",
-      "instructions": ["do it", "ignore it"],
+      "name": "juicy fries",
+      "category": "bake",
+      "instructions": ["cut it", "bake it"],
       "recipe_ingredients_attributes": [{
           "amount": 1,
-          "ingredient": "egg yellow",
+          "ingredient": "egg yolk",
           "measure": "cup"
       },
       {
@@ -60,5 +61,5 @@ curl --include --request POST http://localhost:3000/sign-up \
     }
   }'
 
-curl --include --request DELETE http://localhost:3000/recipes/2 \
---header "Authorization: Token token=BAhJIiUwOThhYjY4NmM0YzQ2YTQ3MDhiZjEwZTRmMWFjMjM2MgY6BkVG--7a874f8407511310d10065e827ce899e11a3d343"
+curl --include --request DELETE http://localhost:3000/recipes/1 \
+--header "Authorization: Token token=BAhJIiVkOTRmOGFlOTMwYzc5NjRiODVlZmY5NmFjMThhMDhmYgY6BkVG--3b14848da23f5400863c36570ceee3a639d87aca"

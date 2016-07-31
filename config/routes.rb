@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :like_recipes, except: [:new, :update, :edit]
+  resources :like_recipes, except: [:new, :edit]
+  resources :profiles, except: [:new, :edit]
   resources :recipe_ingredients, except: [:new, :edit]
   resources :recipes, except: [:new, :edit]
   resources :examples, except: [:new, :edit]

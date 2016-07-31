@@ -54,6 +54,6 @@ class RecipeIngredientsController < ApplicationController
     end
 
     def recipe_ingredient_params
-      params.require(:recipe_ingredient).permit(:ingredient, :measure, :amount, :recipe_id)
+      params.require(:recipe_ingredient).permit(:id, :ingredient, :measure, :amount, :recipe_id)
     end
 end
