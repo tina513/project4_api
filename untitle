@@ -1,0 +1,64 @@
+curl --include --request POST http://localhost:3000/sign-up \
+  --header "Content-Type: application/json" \
+  --data '{
+    "credentials": {
+      "email": "an@example.email",
+      "password": "an example password",
+      "password_confirmation": "an example password"
+    }
+  }'
+
+  curl --include --request POST http://localhost:3000/sign-in \
+  --header "Content-Type: application/json" \
+  --data '{
+    "credentials": {
+      "email": "an@example.email",
+      "password": "an example password"
+    }
+  }'
+
+  curl --include --request POST http://localhost:3000/recipes \
+  --header "Authorization: Token token=BAhJIiU4YjdkMzYzMDZlZjg3YmQ3MmJkZWQzMjI4YjI1NzUxYQY6BkVG--98b440e3707102bf7f6c910880912006b7b42b49" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "recipes": {
+      "name": "first example recipe",
+      "category": "fry",
+      "instructions": ["do it", "ignore it"],
+      "recipe_ingredients_attributes": [{
+          "amount": 1,
+          "ingredient": "egg yellow",
+          "measure": "cup"
+      },
+      {
+      "amount": 3,
+      "ingredient": "milk",
+      "measure": "cup"
+      }]
+    }
+  }'
+
+
+  curl --include --request PATCH http://localhost:3000/recipes/1 \
+  --header "Authorization: Token token=BAhJIiU4YjdkMzYzMDZlZjg3YmQ3MmJkZWQzMjI4YjI1NzUxYQY6BkVG--98b440e3707102bf7f6c910880912006b7b42b49" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "recipes": {
+      "name": "second example recipe",
+      "category": "grill",
+      "instructions": ["do it", "ignore it"],
+      "recipe_ingredients_attributes": [{
+          "amount": 1,
+          "ingredient": "egg yellow",
+          "measure": "cup"
+      },
+      {
+      "amount": 3,
+      "ingredient": "soy milk",
+      "measure": "cup"
+      }]
+    }
+  }'
+
+curl --include --request DELETE http://localhost:3000/recipes/2 \
+--header "Authorization: Token token=BAhJIiUwOThhYjY4NmM0YzQ2YTQ3MDhiZjEwZTRmMWFjMjM2MgY6BkVG--7a874f8407511310d10065e827ce899e11a3d343"
