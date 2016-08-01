@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731162114) do
+ActiveRecord::Schema.define(version: 20160801142154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,33 +26,14 @@ ActiveRecord::Schema.define(version: 20160731162114) do
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
 
   create_table "like_recipes", force: :cascade do |t|
-    t.integer  "profile_id"
     t.integer  "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  add_index "like_recipes", ["profile_id"], name: "index_like_recipes_on_profile_id", using: :btree
-  add_index "like_recipes", ["recipe_id"], name: "index_like_recipes_on_recipe_id", using: :btree
-
-  create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
-
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.string   "ingredient"
-    t.string   "measure"
-    t.integer  "amount"
-    t.integer  "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
+  add_index "like_recipes", ["recipe_id"], name: "index_like_recipes_on_recipe_id", using: :btree
+  add_index "like_recipes", ["user_id"], name: "index_like_recipes_on_user_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -61,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160731162114) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "user_id"
+    t.text     "ingredients",  default: [],              array: true
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
@@ -77,9 +59,7 @@ ActiveRecord::Schema.define(version: 20160731162114) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
-  add_foreign_key "like_recipes", "profiles"
   add_foreign_key "like_recipes", "recipes"
-  add_foreign_key "profiles", "users"
-  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "like_recipes", "users"
   add_foreign_key "recipes", "users"
 end

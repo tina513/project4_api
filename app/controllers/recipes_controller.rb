@@ -20,7 +20,6 @@ class RecipesController < ProtectedController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.recipe_ingredients.build
 
     current_user.recipes << @recipe
 
@@ -61,7 +60,7 @@ class RecipesController < ProtectedController
 
     def recipe_params
       params.require(:recipes)
-            .permit(:name, :category, instructions: [], recipe_ingredients_attributes: [:id, :recipe_id, :ingredient, :measure, :amount])
+            .permit(:name, :category, instructions: [], ingredients: [])
     end
 
 end

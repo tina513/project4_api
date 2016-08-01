@@ -54,6 +54,6 @@ class LikeRecipesController < ApplicationController
     end
 
     def like_recipe_params
-      params.require(:like_recipe).permit(:profile_id, :recipe_id)
+      params.require(:like_recipe).permit(:user_id, :recipe_id)
     end
 end

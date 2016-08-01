@@ -1,5 +1,3 @@
 class LikeRecipeSerializer < ActiveModel::Serializer
-  attributes :id, :recipe
-  has_one :profile
-  has_one :recipe
+  attributes :id, :recipe_id, :user_id
 end

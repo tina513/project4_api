@@ -2,62 +2,45 @@ curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "three@example.email",
-      "password": "three example password",
-      "password_confirmation": "three example password",
-      "profile_attributes": {}
+      "email": "test",
+      "password": "test",
+      "password_confirmation": "test"
     }
   }'
+
+
 
   curl --include --request POST http://localhost:3000/sign-in \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "three@example.email",
-      "password": "three example password"
+      "email": "test",
+      "password": "test"
     }
   }'
 
   curl --include --request POST http://localhost:3000/recipes \
-  --header "Authorization: Token token=BAhJIiVkOTRmOGFlOTMwYzc5NjRiODVlZmY5NmFjMThhMDhmYgY6BkVG--3b14848da23f5400863c36570ceee3a639d87aca" \
+  --header "Authorization: Token token=BAhJIiViYWRmM2I1NmZlZjU0ZTAwNjJkZDM0OTU5MzgyY2M4MAY6BkVG--6216f74fd2213b1ecff56db8cfe99cc12f583e89" \
   --header "Content-Type: application/json" \
   --data '{
     "recipes": {
-      "name": "juicy fries",
-      "category": "fry",
-      "instructions": ["cut it", "fry it"],
-      "recipe_ingredients_attributes": [{
-          "amount": 1,
-          "ingredient": "white potato",
-          "measure": ""
-      },
-      {
-      "amount": 3,
-      "ingredient": "bbq sauce",
-      "measure": "cup"
-      }]
+      "name": "roasted chicken",
+      "category": "back",
+      "instructions": ["clean it", "bake it"],
+      "ingredients": ["two cups of oil","one whole chicken"]
     }
   }'
 
 
-  curl --include --request PATCH http://localhost:3000/recipes/3 \
-  --header "Authorization: Token token=BAhJIiVkOTRmOGFlOTMwYzc5NjRiODVlZmY5NmFjMThhMDhmYgY6BkVG--3b14848da23f5400863c36570ceee3a639d87aca" \
+  curl --include --request PATCH http://localhost:3000/recipes/1 \
+  --header "Authorization: Token token=BAhJIiViYWRmM2I1NmZlZjU0ZTAwNjJkZDM0OTU5MzgyY2M4MAY6BkVG--6216f74fd2213b1ecff56db8cfe99cc12f583e89" \
   --header "Content-Type: application/json" \
   --data '{
     "recipes": {
       "name": "juicy fries",
       "category": "bake",
       "instructions": ["cut it", "bake it"],
-      "recipe_ingredients_attributes": [{
-          "amount": 1,
-          "ingredient": "egg yolk",
-          "measure": "cup"
-      },
-      {
-      "amount": 3,
-      "ingredient": "soy milk",
-      "measure": "cup"
-      }]
+      "ingredients": ["three tablespoon of vegetable oil", "one yellow potato"]
     }
   }'
 
