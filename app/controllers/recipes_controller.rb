@@ -59,7 +59,7 @@ class RecipesController < ProtectedController
     end
 
     def recipe_params
-      params.require(:recipes)
+      params.require(:recipe)
             .permit(:name, :category, instructions: [], ingredients: [])
     end
 
