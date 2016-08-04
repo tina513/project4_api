@@ -1,4 +1,4 @@
-.env
+
 # Created by https://www.gitignore.io/api/rails,ruby,node,osx,linux,windows
 
 ### Rails ###
@@ -15,6 +15,7 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+.env
 
 #
 config/initializers/secret_token.rb

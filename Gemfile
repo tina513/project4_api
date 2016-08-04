@@ -1,19 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'rails', '~> 4.2.6'
 gem 'rails-api'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.11'
+gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk'
+
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end
 
 group :development, :test do
-  gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
   gem 'pry', '~> 0.10.3'
   gem 'byebug', '~> 8.2.2'
   gem 'pry-byebug', '~> 3.3.0'
