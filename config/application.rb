@@ -42,7 +42,7 @@ module RailsApiTemplate
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_URL'] || 'http://localhost:5000'
+        origins ENV['CLIENT_URL'] || 'https://tina513.github.io'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
