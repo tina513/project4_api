@@ -24,13 +24,12 @@ curl --include --request POST http://localhost:3000/sign-up \
   --header "Content-Type: application/json" \
 
   curl --include --request POST http://localhost:3000/recipes \
-  --header "Authorization: Token token=BAhJIiViYWRmM2I1NmZlZjU0ZTAwNjJkZDM0OTU5MzgyY2M4MAY6BkVG--6216f74fd2213b1ecff56db8cfe99cc12f583e89" \
+  --header "Authorization: Token token=BAhJIiU1NGM3NThiNDZjY2RlMmJmODAzNWQ2NjNlNWY0YTgwNwY6BkVG--297743d9863f35f4d1fc99bc14ce117487a5020a" \
   --header "Content-Type: application/json" \
   --data '{
     "recipe": {
       "name": "roasted chicken",
       "category": "back",
-      "image": "./Users/Dlnaz/Desktop/heng_li.jpg",
       "instructions": ["clean it", "bake it"],
       "ingredients": ["two cups of oil","one whole chicken"]
     }
