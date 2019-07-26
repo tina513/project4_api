@@ -14,6 +14,7 @@ gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
+  gem 'pg'
 end
 
 group :development, :test do
