@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.7'
 
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
-gem 'rails', '~> 4.2.6'
+gem 'rails'
 gem 'rails-api'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors', require: 'rack/cors'
