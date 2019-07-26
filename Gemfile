@@ -6,7 +6,7 @@ gem 'rails', '~> 4.2.6'
 gem 'rails-api'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors', require: 'rack/cors'
-gem 'pg'
+gem 'pg', '~> 1.1.4'
 gem 'bcrypt', '~> 3.1.11'
 gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk'
@@ -14,7 +14,6 @@ gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
-  gem 'pg'
 end
 
 group :development, :test do
