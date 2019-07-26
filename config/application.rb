@@ -42,7 +42,7 @@ module RailsApiTemplate
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins *
+        origins '*'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
